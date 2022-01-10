@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo springboot-helloworld > /tmp/.auth
-echo $BUILD_TAG >> /tmp/.auth
+echo $IMAGE > /tmp/.auth
+echo $TAG >> /tmp/.auth
 echo $PASS >> /tmp/.auth
 
 scp -i /var/jenkins_home/key-pairs/remote-key /tmp/.auth remote_user@remote_host_prod:/tmp/.auth && \
