@@ -1,6 +1,9 @@
 pipeline {
 
     agent any
+    environment {
+        PASSWORD_DOCKER=credentials("dockerhub-tosaporn")
+    }
     tools {
             maven "jenkins-maven"
         }
@@ -9,8 +12,9 @@ pipeline {
         stage('Initialize'){
                     steps{
                         echo "PATH = ${M2_HOME}/bin:${PATH}"
-                        export IMAGE=hello-world-jenkins
-                        export TAG=0.0.1
+                        sh ''' export IMAGE=hello-world-jenkins
+                                export TAG=0.0.1
+                        '''
                     }
         }
 
