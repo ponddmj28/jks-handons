@@ -1,0 +1,7 @@
+version: '3'
+services:
+  hello-app:
+    image: 'tosaporn/$IMAGE:$TAG'
+    container_name: hello-worl-jenkins
+    ports:
+      - "8081:8080"
