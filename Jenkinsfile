@@ -26,6 +26,11 @@ pipeline {
                     ./jenkins/build/build.sh
                 '''
             }
+            post {
+                    success {
+                        archiveArtifacts artifacts: './java-app/build/*.jar',fingerprint: true
+                    }
+            }
         }
 
         stage('Test') {
@@ -33,6 +38,11 @@ pipeline {
                 sh '''
                     mvn test -e -f ./java-app
                    '''
+            }
+            post {
+                    always {
+                        junit './java-app/target/surefire-reports/*.xml'
+                    }
             }
         }
 
