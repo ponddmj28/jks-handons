@@ -4,7 +4,7 @@ echo "***************************"
 echo "** Pushing  Image **"
 echo "***************************"
 
-IMAGE="centos7-prod"
+BUILD_TAG=$TAG
 
 echo "*** Loged out ***"
 docker logout

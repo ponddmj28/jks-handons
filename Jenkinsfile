@@ -23,7 +23,7 @@ pipeline {
                 sh '''
                     chmod 777 -R jenkins
                     chmod 777 -R java-app
-                    mvn -B clean install -e -f /var/jenkins_home/workspace/pipeline-docker-maven/java-app
+                    mvn -B clean install -e -f ./java-app
                     ./jenkins/build/build.sh
                 '''
             }
@@ -41,7 +41,7 @@ pipeline {
             steps {
                 sh '''
                                      ./jenkins/push/push.sh
-                                   '''
+                   '''
             }
         }
 
@@ -55,7 +55,7 @@ pipeline {
 
         stage ('Deploy') {
             steps{
-                sshagent(credentials : ['prod-remote-credentials']) {
+                sshagent(credentials : ['remote_user']) {
                                     sh 'bash -i /var/jenkins_home/key-pairs/remote-key remote_user@remote_host_prod /tmp/publish.sh'
                         }
             }
