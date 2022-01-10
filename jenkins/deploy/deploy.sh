@@ -2,7 +2,7 @@
 
 echo $IMAGE > /tmp/.auth
 echo $TAG >> /tmp/.auth
-echo $PASS >> /tmp/.auth
+echo $PASSWORD_DOCKER >> /tmp/.auth
 
 scp -i /var/jenkins_home/key-pairs/remote-key /tmp/.auth remote_user@remote_host_prod:/tmp/.auth && \
 scp -i /var/jenkins_home/key-pairs/remote-key /tmp/deploy/publish.sh remote_user@remote_host_prod:/tmp/publish.sh && \
