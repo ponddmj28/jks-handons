@@ -1,8 +1,9 @@
 #!/bin/bash
 
 #copy new jar to build location
+WORKSPACE=$PWD
 
-cp -f java-app/target/.*jar jenkins/build/
+cp -f $WORKSPACE/java-app/target/*.jar $WORKSPACE/jenkins/build/
 
 echo "***************************"
 echo "** Building Docker Image **"
