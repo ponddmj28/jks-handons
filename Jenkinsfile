@@ -55,7 +55,7 @@ pipeline {
         stage ('Deploy') {
             steps{
                 sshagent(credentials : ['remote_user']) {
-                                    sh 'bash -i /var/jenkins_home/key-pairs/remote-key remote_user@remote_host_prod /tmp/publish.sh'
+                           sh 'ssh remote_user@remote_host_prod /tmp/publish.sh'
                         }
             }
         }
