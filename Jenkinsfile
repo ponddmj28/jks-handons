@@ -32,7 +32,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                     ./jenkins/test/maven-test.sh mvn test -e -f /app
+                    mvn test -e -f ./java-app
                    '''
             }
         }
