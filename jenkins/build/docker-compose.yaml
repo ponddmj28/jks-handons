@@ -1,7 +1,7 @@
 version: '3'
 services:
   hello-app:
-    image: 'tosaporn/$IMAGE:$TAG'
+    image: 'tosaporn/${IMAGE}:${TAG}'
     container_name: hello-worl-jenkins
     build:
       context: .
